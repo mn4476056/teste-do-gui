@@ -11,29 +11,29 @@ var juiceDIV= document.getElementById("juiceDIV");
 var saladDIV = document.getElementById("saladDIV");
 
 //information
-var FRUIT = [
+var FRUTA = [
 
-    {name : 'Apple', prince:1},
-    {name : 'Orange', prince:1},
-    {name : 'Cherry', prince:1},
-    {name : 'Strawberry', prince:1},
+    {name : 'Maça', prince:1},
+    {name : 'Laranja', prince:1},
+    {name : 'Cereja', prince:1},
+    {name : 'Morango', prince:1},
     {name : 'Kiwi', prince:1},
     {name : 'Banana', prince:1}
 
 ];
-var JUICE=[
-    {name:'Juice #1', prince:10},
-    {name:'Juice #2', prince:11},
-    {name:'Juice #3', prince:12}
+var SUCO=[
+    {name:'Suco #1', prince:10},
+    {name:'Suco #2', prince:11},
+    {name:'Suco #3', prince:12}
 ];
-var SALAD =[
-    {name:'Salad #1', prince:11},
-    {name:'Salad #2', prince:12},
-    {name:'Salad #3', prince:15}
+var SALADA =[
+    {name:'Salada #1', prince:11},
+    {name:'Salada #2', prince:12},
+    {name:'Salada #3', prince:15}
 ];
 //html
 function HTMLfruitProduct(con){
-    let URL = `../img/fruits/fruits${con}.jpeg`; // min 1 e 58
+    let URL = `../img/frutas/frutas${con}.jpeg`; // min 1 e 58
     let btn = `btnFruits${con}`;
     return`
      <div class="col-md-4">
@@ -66,7 +66,7 @@ function HTMLfruitProduct(con){
     
 }
 function HTMLjuiceProduct(con){
-    let URL = `../img/juice/juice${con}.jpeg`; // min 1 e 58
+    let URL = `../img/sucos/suco${con}.jpeg`; // min 1 e 58
     let btn = `btnJuices${con}`;
     return`
      <div class="col-md-4">
@@ -77,15 +77,15 @@ function HTMLjuiceProduct(con){
             <i style="color:orange;" class="fa fa-star" ></i>
             <i style="color:orange;" class="fa fa-star" ></i>
             <i style="color:orange;" class="fa fa-star" ></i>
-            <p class="card-text">${JUICE[con-1].name}</p>
-            <p class="card-text">Prince:${JUICE[con-1].prince}.00</p>
+            <p class="card-text">${SUCO[con-1].name}</p>
+            <p class="card-text">Prince:${SUCO[con-1].preço}.00</p>
             <div class="d-flex justify-content-between align-items-center">
             <div class ="btn-group">
-            <button type="button" onclick="cat2('${JUICE[con-1].name} ','
-            ${JUICE[con-1].prince}','${URL} ',' ${con} ',' ${btn}') "  
+            <button type="button" onclick="cat2('${SUCO[con-1].name} ','
+            ${SUCO[con-1].preço}','${URL} ',' ${con} ',' ${btn}') "  
             class="btn bnt-sm btn-outline-secondary"><a
             style="color:inherit;"href="/cart">Buy</a><button>
-            <button id="${btn}" type="button onclick="cart('${FRUIT[con-1].name}','${FRUIT[con-1].prince}','${URL}','${con}','${btn}')"
+            <button id="${btn}" type="button onclick="cart('${FRUTA[con-1].name}','${FRUTA[con-1].preço}','${URL}','${con}','${btn}')"
             class="btn btn-sm btn-outline-secondary" > Add to cart</button>
             </div>
             <small class="text-muted"> Free shipping </small>
@@ -110,15 +110,15 @@ function HTMLsaladProduct(con){
             <i style="color:orange;" class="fa fa-star" ></i>
             <i style="color:orange;" class="fa fa-star" ></i>
             <i style="color:orange;" class="fa fa-star" ></i>
-            <p class="card-text">${SALAD[con-1].name}</p>
-            <p class="card-text">Prince:${SALAD[con-1].prince}.00</p>
+            <p class="card-text">${SALADA[con-1].name}</p>
+            <p class="card-text">Prince:${SALADA[con-1].preço}.00</p>
             <div class="d-flex justify-content-between align-items-center">
             <div class ="btn-group">
-            <button type="button" onclick="cat2('${SALAD[con-1].name} ','
-            ${SALAD[con-1].prince}','${URL} ',' ${con} ',' ${btn}') "  
+            <button type="button" onclick="cat2('${SALADA[con-1].name} ','
+            ${SALADA[con-1].preço}','${URL} ',' ${con} ',' ${btn}') "  
             class="btn bnt-sm btn-outline-secondary"><a
             style="color:inherit;"href="/cart">Buy</a><button>
-            <button id="${btn}" type="button onclick="cart('${SALAD[con-1].name}','${SALAD[con-1].prince}','${URL}','${con}','${btn}')"
+            <button id="${btn}" type="button onclick="cart('${SALADA[con-1].name}','${SALADA[con-1].preço}','${URL}','${con}','${btn}')"
             class="btn btn-sm btn-outline-secondary" > Add to cart</button>
             </div>
             <small class="text-muted"> Free shipping </small>
@@ -146,10 +146,10 @@ toast({
 });
 
 }
-function cart(name,price,url,con,btncart){
+function carrinho(name,preço,url,con,btncart){
     var item={
         name:name,
-        price:price,
+        preço:preço,
         url:url
     }
     cartItems.push(item);
